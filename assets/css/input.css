@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.all-considerations-border {
+  @apply p-px m-1 pb-1 bg-gradient-to-r from-sl-teal-500 from-10% via-amber-300 to-sl-magenta-500 to-90% rounded-lg;
+}
+
+.consideration {
+  @apply px-2 py-1 m-1 rounded-lg border border-b-4 bg-slate-100 dark:bg-slate-700 text-gray-700 dark:text-gray-50 font-medium;
+}
+
+.consideration.product {
+  @apply border-sl-teal-500;
+}
+
+.consideration.operations {
+  @apply border-amber-300;
+}
+
+.consideration.people {
+  @apply border-sl-magenta-500;
+}
+
+.corporate-governance {
+  @apply p-2 bg-fuchsia-100 dark:bg-fuchsia-800 text-gray-700 dark:text-gray-50;
+}
+
+.business {
+  @apply p-2 bg-fuchsia-200 dark:bg-fuchsia-900 text-gray-700 dark:text-gray-50;
+}
+
+.technology-governance {
+  @apply p-2 bg-sky-100 dark:bg-sky-700 text-gray-700 dark:text-gray-50;
+}
+
+.technology {
+  @apply p-2 bg-sky-200 dark:bg-sky-800 text-gray-700 dark:text-gray-50;
+}
+
+.perspective-filter {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.perspective-hidden {
+  opacity: 0.2;
+  transform: scale(0.95);
+}

@@ -1,0 +1,208 @@
+
+# AI Framework Configuration
+# This YAML file defines the structure and content for the AI framework visualization
+# The framework displays AI considerations across different organizational layers and value chain stages
+
+# VALUE CHAIN DEFINITION
+# Defines the horizontal columns in the framework grid
+# Each stage represents a different phase in the AI value chain
+# The 'column' number determines the grid position (1-4 from left to right)
+# YAML anchors (&anchor_name) are used to reference these definitions throughout the file
+value_chain:
+  foundation_model: &foundation_model
+    name: 'Foundation Model'    # Column header text
+    column: 1                   # Grid position (leftmost)
+
+  applications: &applications
+    name: 'Applications'        # Column header text
+    column: 2                   # Grid position
+
+  usage: &usage
+    name: 'Usage'              # Column header text
+    column: 3                   # Grid position
+
+  stakeholders: &stakeholders
+    name: 'Stakeholders'       # Column header text
+    column: 4                   # Grid position (rightmost)
+
+# FRAMEWORK LAYERS
+# Defines the vertical rows of the framework
+# Each layer represents a different organizational level or perspective
+# Layers are rendered from top to bottom in the order they appear here
+layers:
+  # CORPORATE GOVERNANCE LAYER
+  # Top-level strategic and compliance considerations
+  - title: Corporate Governance           # Layer title (displayed vertically)
+    class: corporate-governance          # CSS class for styling this layer
+    considerations:                      # List of considerations within this layer
+      # CONSIDERATION STRUCTURE:
+      # - title: Display text for the consideration
+      # - value_chain: Starting column (*anchor reference)
+      # - value_chain_end: Ending column (optional, for spanning multiple columns)
+      # - type: Filter category AND CSS class (all, product, operations, people)
+      #   * 'all' = always visible regardless of filter, uses special styling
+      #   * 'product' = visible when product filter is active, applies 'product' CSS class
+      #   * 'operations' = visible when operations filter is active, applies 'operations' CSS class
+      #   * 'people' = visible when people filter is active, applies 'people' CSS class
+      #   NOTE: The type value serves dual purpose - both for JavaScript filtering logic
+      #         and as a CSS class name applied to the consideration element for styling
+
+      - title: Sustainability/ Responsibility
+        value_chain: *foundation_model    # Spans from Foundation Model...
+        value_chain_end: *stakeholders    # ...to Stakeholders (full width)
+        type: all                        # Always visible
+        path: /considerations/sustainability-responsibility
+
+      - title: Bring Your Own AI
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/bring-your-own-ai
+
+      - title: Shareholders
+        value_chain: *stakeholders       # Positioned in Stakeholders column
+        type: people                     # People filter
+        path: /considerations/shareholders
+
+      - title: Data Leakage (IP)
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/data-leakage-ip
+
+      - title: Regulators
+        value_chain: *stakeholders       # Positioned in Stakeholders column
+        type: people                     # People filter
+        path: /considerations/regulators
+
+      - title: Governance Risk Compliance
+        value_chain: *applications       # Spans from Applications...
+        value_chain_end: *stakeholders   # ...to Stakeholders
+        type: operations                 # Operations filter
+        path: /considerations/governance-risk-compliance
+
+  # BUSINESS LAYER
+  # Business strategy, stakeholder management, and operational considerations
+  - title: Business                      # Layer title
+    class: business                      # CSS class for styling
+    considerations:
+      - title: Investment
+        value_chain: *applications       # Positioned in Applications column
+        type: operations                 # Operations filter
+        path: /considerations/investment
+
+      - title: Customers
+        value_chain: *usage              # Spans from Usage...
+        value_chain_end: *stakeholders   # ...to Stakeholders
+        type: people                     # People filter
+        path: /considerations/customers
+
+      - title: Employees
+        value_chain: *usage              # Spans from Usage...
+        value_chain_end: *stakeholders   # ...to Stakeholders
+        type: people                     # People filter
+        path: /considerations/employees
+
+      - title: Product/ Service
+        value_chain: *usage              # Positioned in Usage column
+        type: product                    # Product filter
+        path: /considerations/product-service
+
+      - title: Suppliers
+        value_chain: *stakeholders       # Positioned in Stakeholders column
+        type: people                     # People filter
+        path: /considerations/suppliers
+
+      - title: Source Data (IP)
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/source-data-ip
+
+      - title: Review KPI
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/review-kpi
+
+  # TECHNOLOGY GOVERNANCE LAYER
+  # Technical oversight, quality assurance, and operational governance
+  - title: Technology Governance         # Layer title
+    class: technology-governance         # CSS class for styling
+    considerations:
+      - title: 3rd Party Model Selection
+        value_chain: *foundation_model   # Spans from Foundation Model...
+        value_chain_end: *applications   # ...to Applications
+        type: operations                 # Operations filter
+        path: /considerations/3rd-party-model-selection
+
+      - title: Quality Assurance
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/quality-assurance
+
+      - title: Sec/Dev Ops
+        value_chain: *applications       # Spans from Applications...
+        value_chain_end: *usage          # ...to Usage
+        type: operations                 # Operations filter
+        path: /considerations/sec-dev-ops
+
+      - title: Architecture Review
+        value_chain: *applications       # Spans from Applications...
+        value_chain_end: *usage          # ...to Usage
+        type: operations                 # Operations filter
+        path: /considerations/architecture-review
+
+  # TECHNOLOGY LAYER
+  # Core technical components, infrastructure, and implementation details
+  - title: Technology                    # Layer title
+    class: technology                    # CSS class for styling
+    considerations:
+      - title: Training Data (IP)
+        value_chain: *foundation_model   # Positioned in Foundation Model column
+        type: product                    # Product filter
+        path: /considerations/training-data-ip
+
+      - title: Research & Development
+        value_chain: *applications       # Positioned in Applications column
+        type: product                    # Product filter
+        path: /considerations/research-development
+
+      - title: Data Ingestion
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/data-ingestion
+
+      - title: Training Compute
+        value_chain: *foundation_model   # Positioned in Foundation Model column
+        type: product                    # Product filter
+        path: /considerations/training-compute
+
+      - title: Application Hosting
+        value_chain: *applications       # Positioned in Applications column
+        type: product                    # Product filter
+        path: /considerations/application-hosting
+
+      - title: Downstream Applications
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/downstream-applications
+
+      - title: Model Hosting
+        value_chain: *applications       # Positioned in Applications column
+        type: product                    # Product filter
+        path: /considerations/model-hosting
+
+      - title: Integration
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/integration
+
+      - title: Augmented Technology
+        value_chain: *usage              # Positioned in Usage column
+        type: operations                 # Operations filter
+        path: /considerations/augmented-technology
+
+# HOW TO UPDATE THIS FILE:
+# 1. To add a new layer: Copy an existing layer structure and modify the title, class, and considerations
+# 2. To add a new consideration: Add a new item under the appropriate layer's considerations list
+# 3. To modify positioning: Change the value_chain reference to position in different columns
+# 4. To span multiple columns: Add value_chain_end to specify the ending column
+# 5. To change filtering: Modify the type field (all, product, operations, people)
+# 6. The framework.html template will automatically render any changes made here

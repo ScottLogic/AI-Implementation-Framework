@@ -1,0 +1,126 @@
+{% assign framework = site.data.framework %}
+
+<!-- FILTERS -->
+<div class="flex flex-start gap-2 mb-2 p-3">
+  <button
+    onclick="setConsiderationPerspective('all')"
+    id="btn-class-all"
+    class="px-4 py-2 bg-slate-600 text-white rounded-lg transition-colors hover:bg-slate-700 border-slate-800">
+    All
+  </button>
+  <button
+    onclick="setConsiderationPerspective('product')"
+    id="btn-class-product"
+    class="px-4 py-2 bg-sl-teal-400 text-gray-50 rounded-lg transition-colors hover:bg-sl-teal-500 border-sl-teal-600">
+    Product
+  </button>
+  <button
+    onclick="setConsiderationPerspective('operations')"
+    id="btn-class-operations"
+    class="px-4 py-2 bg-amber-300 text-gray-700 rounded-lg transition-colors hover:bg-amber-400 border-amber-600">
+    Operations
+  </button>
+  <button
+    onclick="setConsiderationPerspective('people')"
+    id="btn-class-people"
+    class="px-4 py-2 bg-sl-magenta-400 text-gray-50 rounded-lg transition-colors hover:bg-sl-magenta-500 border-sl-magenta-600">
+    People
+  </button>
+</div>
+
+<div class="bg-slate-50 dark:bg-slate-700 shadow-lg p-3 rounded-xl">
+
+  <!-- MASTER GRID: 5 COLUMNS -->
+  <div class="grid grid-cols-[4rem_1fr_1fr_1fr_1fr] gap-0 ">
+
+    <!-- HEADERS -->
+    <div class="grid grid-cols-subgrid gap-0 col-span-5 divide-x-2 divide-slate-200 dark:divide-slate-500 text-sm font-bold text-center text-gray-700 dark:text-gray-50">
+      <div class="col-start-2 p-3">{{ framework.value_chain.foundation_model.name }}</div>
+      <div class="p-3">{{ framework.value_chain.applications.name }}</div>
+      <div class="p-3">{{ framework.value_chain.usage.name }}</div>
+      <div class="p-3">{{ framework.value_chain.stakeholders.name }}</div>
+    </div>
+
+    {% for layer in framework.layers %}
+      <div class="grid grid-cols-subgrid gap-0 col-span-5 rounded-l-lg {{ layer.class }}">
+
+        <div class="flex items-center justify-center col-span-1">
+          <div class="-rotate-90 text-sm font-bold">{{ layer.title }}</div>
+        </div>
+
+        <div class="grid grid-cols-subgrid gap-0 col-span-4 text-sm">
+
+          {% for consideration in layer.considerations %}
+            {% if consideration.type == 'all' %}
+              <div class="col-start-{{ consideration.value_chain.column }} {% if consideration.value_chain_end %}col-end-{{ consideration.value_chain_end.column | plus: 1 }}{% endif %}">
+                <a href="{{ consideration.path }}" class="block group all-considerations-border perspective-filter" data-consideration="{{ consideration.type }}">
+                  <div class="px-2 py-1 rounded-[7px] bg-slate-100 dark:bg-slate-700 text-gray-700 dark:text-gray-50 font-medium">
+                    <div class="group-hover:underline">{{ consideration.title }}</div>
+                  </div>
+                </a>
+              </div>
+            {% else %}
+              <div class="col-start-{{ consideration.value_chain.column }} {% if consideration.value_chain_end %}col-end-{{ consideration.value_chain_end.column | plus: 1 }}{% endif %}">
+                <a href="{{ consideration.path }}" class="block group consideration {{ consideration.type }} perspective-filter" data-consideration="{{ consideration.type }}">
+                  <div class="group-hover:underline group-hover:font-semibold">{{ consideration.title }}</div>
+                </a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+<script>
+  let currentConsiderationFilter = 'all';
+
+  function updateElementVisibility() {
+    const elements = document.querySelectorAll('.perspective-filter');
+    elements.forEach(element => {
+      const elementClass = element.getAttribute('data-consideration');
+      let showElement = true;
+
+      // Check class filter
+      if (currentConsiderationFilter !== 'all') {
+        showElement = showElement && (elementClass === 'all' || elementClass === currentConsiderationFilter);
+      }
+
+      if (showElement) {
+        element.classList.remove('perspective-hidden');
+      } else {
+        element.classList.add('perspective-hidden');
+      }
+    });
+  }
+
+  function setConsiderationPerspective(perspective) {
+
+    if (currentConsiderationFilter === perspective) {
+      currentConsiderationFilter = 'all'
+    } else {
+      currentConsiderationFilter = perspective;
+    }
+
+    // Update button states
+    const buttons = ['all', 'product', 'operations', 'people'];
+    buttons.forEach(btn => {
+      const element = document.getElementById(`btn-class-${btn}`);
+      if (btn === currentConsiderationFilter) {
+        element.classList.add('border-b-4');
+      } else {
+        element.classList.remove('border-b-4');
+      }
+    });
+
+    updateElementVisibility();
+  }
+
+
+  // Initialize with complete view
+  setConsiderationPerspective('all');
+
+</script>
