@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Quality Assurance
+layout: consideration
 permalink: /considerations/quality-assurance
 ---

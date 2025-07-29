@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Downstream Applications
+layout: consideration
 permalink: /considerations/downstream-applications
 ---

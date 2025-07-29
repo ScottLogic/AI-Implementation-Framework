@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Data Ingestion
+layout: consideration
 permalink: /considerations/data-ingestion
 ---

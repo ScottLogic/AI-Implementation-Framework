@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Governance Risk Compliance
+layout: consideration
 permalink: /considerations/governance-risk-compliance
 ---

@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Suppliers
+layout: consideration
 permalink: /considerations/suppliers
 ---

@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Source Data (IP)
+layout: consideration
 permalink: /considerations/source-data-ip
 ---

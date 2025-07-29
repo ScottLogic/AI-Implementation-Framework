@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Model Hosting
+layout: consideration
 permalink: /considerations/model-hosting
 ---

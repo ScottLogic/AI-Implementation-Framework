@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Architecture Review
+layout: consideration
 permalink: /considerations/architecture-review
 ---

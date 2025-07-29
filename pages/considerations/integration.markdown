@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Integration
+layout: consideration
 permalink: /considerations/integration
 ---

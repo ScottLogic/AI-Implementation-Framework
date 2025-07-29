@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Sec/Dev Ops
+layout: consideration
 permalink: /considerations/sec-dev-ops
 ---

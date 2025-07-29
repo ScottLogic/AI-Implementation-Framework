@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Sustainability/ Responsibility
+layout: consideration
 permalink: /considerations/sustainability-responsibility
 ---

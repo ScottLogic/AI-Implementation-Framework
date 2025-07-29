@@ -18,8 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: AI Framework
-email: ai-framework@scottlogic.com
+title: AI Implementation Framework
+creator: Scott Logic
+year: 2025
+email:
 description: >- # this means to ignore newlines until "baseurl:"
   Cost, Risk and ROI Considerations on your AI journey
 baseurl: "" # the subpath of your site, e.g. /blog

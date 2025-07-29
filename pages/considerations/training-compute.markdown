@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Training Compute
+layout: consideration
 permalink: /considerations/training-compute
 ---

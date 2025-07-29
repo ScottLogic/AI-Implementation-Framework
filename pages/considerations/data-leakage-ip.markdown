@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Data Leakage (IP)
+layout: consideration
 permalink: /considerations/data-leakage-ip
 ---

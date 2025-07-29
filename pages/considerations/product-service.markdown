@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Product/ Service
+layout: consideration
 permalink: /considerations/product-service
 ---

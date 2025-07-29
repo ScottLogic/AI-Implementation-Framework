@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Investment
+layout: consideration
 permalink: /considerations/investment
 ---
