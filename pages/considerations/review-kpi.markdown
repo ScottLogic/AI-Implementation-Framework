@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Review KPI
+layout: consideration
 permalink: /considerations/review-kpi
 ---

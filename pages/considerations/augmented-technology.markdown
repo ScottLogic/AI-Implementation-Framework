@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Augmented Technology
+layout: consideration
 permalink: /considerations/augmented-technology
 ---

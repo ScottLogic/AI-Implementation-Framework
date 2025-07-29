@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Application Hosting
+layout: consideration
 permalink: /considerations/application-hosting
 ---

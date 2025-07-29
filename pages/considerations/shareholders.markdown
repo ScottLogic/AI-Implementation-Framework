@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Shareholders
+layout: consideration
 permalink: /considerations/shareholders
 ---

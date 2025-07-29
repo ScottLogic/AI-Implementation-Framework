@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Regulators
+layout: consideration
 permalink: /considerations/regulators
 ---

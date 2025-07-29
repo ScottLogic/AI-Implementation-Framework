@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Training Data (IP)
+layout: consideration
 permalink: /considerations/training-data-ip
 ---

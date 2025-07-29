@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+  <article class="prose prose-lg max-w-none">
+    {% assign dynamic_title = page.title %}
+
+    {% for layer in site.data.framework.layers %}
+      {% for consideration in layer.considerations %}
+        {% if consideration.path == page.permalink %}
+          {% assign dynamic_title = consideration.title %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+
+    {% if dynamic_title %}
+      <header class="mb-8">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ dynamic_title }}</h1>
+        {% if page.description %}
+          <p class="text-xl text-gray-600">{{ page.description }}</p>
+        {% endif %}
+      </header>
+    {% endif %}
+
+    <div class="text-gray-700 leading-relaxed">
+      {{ content }}
+    </div>
+  </article>
+</div>

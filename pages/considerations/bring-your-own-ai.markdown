@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Bring Your Own AI
+layout: consideration
 permalink: /considerations/bring-your-own-ai
 ---

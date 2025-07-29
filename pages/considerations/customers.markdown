@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Customers
+layout: consideration
 permalink: /considerations/customers
 ---

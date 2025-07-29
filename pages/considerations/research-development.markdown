@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Research & Development
+layout: consideration
 permalink: /considerations/research-development
 ---

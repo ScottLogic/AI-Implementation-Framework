@@ -1,17 +1,11 @@
-<footer class="bg-gray-50 border-t border-gray-200">
+<footer class="bg-gray-50 border-t border-gray-200 text-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- Site Info -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-gray-900">{{ site.title }}</h3>
-        <p class="text-gray-600 text-sm">{{ site.description }}</p>
-      </div>
 
       <!-- Contact Info -->
       {% if site.email %}
       <div class="space-y-4">
-        <h3 class="text-lg font-semibold text-gray-900">Contact</h3>
+        <h3 class="text-lg font-semibold text-gray-600">Contact</h3>
         <p class="text-sm">
           <a href="mailto:{{ site.email }}" class="text-gray-600 hover:text-gray-900 transition-colors">
             {{ site.email }}
@@ -22,11 +16,15 @@
 
     </div>
 
-    <!-- Copyright -->
-    <div class="mt-8 pt-8 border-t border-gray-200 text-center">
-      <p class="text-sm text-gray-500">
-        &copy; {{ "now" | date: "%Y" }} {{ site.title }}.
-      </p>
+    <!-- Copyright & License -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-gray-600">
+      <div>
+        Scott Logic Limited is a company registered in England and Wales (company number: 05377430) whose address is at 6th Floor The Lumen, St James Boulevard, Newcastle Helix, Newcastle upon Tyne, NE4 5BZ. VAT No: 866105130
+        </br>© 2025 Scott Logic Limited
+      </div>
+
+      {%- include license.html -%}
     </div>
+
   </div>
 </footer>

@@ -47,7 +47,7 @@ layers:
       #   NOTE: The type value serves dual purpose - both for JavaScript filtering logic
       #         and as a CSS class name applied to the consideration element for styling
 
-      - title: Sustainability/ Responsibility
+      - title: Sustainability & Responsibility
         value_chain: *foundation_model    # Spans from Foundation Model...
         value_chain_end: *stakeholders    # ...to Stakeholders (full width)
         type: all                        # Always visible
@@ -101,7 +101,7 @@ layers:
         type: people                     # People filter
         path: /considerations/employees
 
-      - title: Product/ Service
+      - title: Products and Services
         value_chain: *usage              # Positioned in Usage column
         type: product                    # Product filter
         path: /considerations/product-service

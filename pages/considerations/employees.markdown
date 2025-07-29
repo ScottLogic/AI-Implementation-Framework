@@ -1,5 +1,4 @@
 ---
-layout: page
-title: Employees
+layout: consideration
 permalink: /considerations/employees
 ---
