@@ -1,4 +1,4 @@
 ---
-layout: consideration
+layout: page
 permalink: /considerations/research-development
 ---
